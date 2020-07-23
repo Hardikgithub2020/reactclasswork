@@ -33,6 +33,44 @@
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(-360deg);
   }
+}
+
+hr{
+  width: 100%;
+}
+.hobbySet{
+  display: flex;
+  flex-flow: row nowrap;
+  
+}
+.hobbyCard{
+  width: 300px;
+  display: flex;
+  flex-flow: column nowrap;
+  background: orange;
+  border: 2px solid blue;
+  border-radius: 5%;
+  color: red;
+  margin: 5px;
+}
+.hobbyCard h2{
+  text-shadow: blue 2px 1px;
+}
+.hobbyCard p{
+  font-size: 12pt;
+  font-style: italic;
+  font-weight: bold;
+}
+.hobbyCard img{
+  width: 100%;
+  height: 200px;
+}
+.hobbyCard:hover{
+  margin-top: 0px;
+}
+.stopWatch{
+  display: flex;
+  flex-flow: row nowrap;
 }
