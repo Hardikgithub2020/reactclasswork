@@ -6,6 +6,7 @@ import Topping from './Component/Toppings';
 import Hobbies from './Component/Hobbies';
 import ClassTeST from './Component/ClassTest';
 import StopWatch from './Component/DigitalClock';
+import ClickButton from './Component/ClickButton';
 
 function App() {
   return (
@@ -26,6 +27,8 @@ function App() {
         <ClassTeST />
         <hr />
         <StopWatch />
+        <hr />
+        <ClickButton />
       </header>
     </div>
   );

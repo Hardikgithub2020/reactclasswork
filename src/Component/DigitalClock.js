@@ -8,6 +8,7 @@ class DigitalClock extends Component{
             hours:0,
             minutes:0,
             seconds:0,
+            milliseconds:0,
             timer:null
         }
     }
@@ -24,14 +25,20 @@ class DigitalClock extends Component{
         );
     }
     updateSeconds = () =>{
-        let sd = this.state.seconds + 1
+        let sd = this.state.seconds + 1;
         this.setState(
             {seconds: sd}
         );
     }
+    updateMilliseconds = () =>{
+        let ml = this.state.milliseconds + 1;
+        this.setState(
+            {milliseconds: ml}
+        );
+    }
     startClock = () =>{
         this.setState(
-            {timer:setInterval(()=>this.updateClock(),1000)}
+            {timer:setInterval(()=>this.updateClock(),1)}
         );
     }
     pauseClock = () =>{
@@ -43,12 +50,19 @@ class DigitalClock extends Component{
             {
                 hours: 0,
                 minutes: 0,
-                seconds: 0
+                seconds: 0,
+                milliseconds:0
             }
         )
     }
     updateClock = () =>{
-        this.updateSeconds();
+        this.updateMilliseconds();
+        if (this.state.milliseconds === 1000){
+            this.setState(
+                {milliseconds:0}
+            )
+            this.updateSeconds();
+        }
         if (this.state.seconds === 60){
             this.setState(
                 {seconds:0}
@@ -68,7 +82,8 @@ class DigitalClock extends Component{
                 <div className="stopWatch">
                     <DigitalNumber number={this.state.hours} /><span>:</span>
                     <DigitalNumber number={this.state.minutes} /><span>:</span>
-                    <DigitalNumber number={this.state.seconds} />
+                    <DigitalNumber number={this.state.seconds} /><span>:</span>
+                    <DigitalNumber number={this.state.milliseconds} milli={true} />
                 </div>
                 <div className="controls">
                     <button onClick={this.startClock}>></button>
